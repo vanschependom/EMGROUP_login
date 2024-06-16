@@ -139,10 +139,13 @@ class _DashboardPageState extends State<DashboardPage> {
             padding: EdgeInsets.zero,
             children: [
               ListTile(
-                title: Text('Meer'),
-              ),
-              Divider(
-                thickness: 2,
+                title: Text(
+                  'Meer',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18,
+                  ),
+                ),
               ),
               ListTile(
                 title: Text('Instellingen'),
@@ -167,8 +170,8 @@ class _DashboardPageState extends State<DashboardPage> {
             HomePage(),
             TeamverlofPage(),
             AanvragenPage(),
-            ProfielPage(),
           ],
+          physics: ClampingScrollPhysics(),
           onPageChanged: (int index) {
             setState(() {
               _currentIndex = index;
