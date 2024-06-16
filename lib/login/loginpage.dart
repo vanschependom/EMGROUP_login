@@ -10,16 +10,17 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     ColorScheme theme = Theme.of(context).colorScheme;
-    CustomColors? customTheme = Theme.of(context).extension<CustomColors>();
 
     return Scaffold(
-      backgroundColor: theme.background,
+      backgroundColor: theme.surface,
       body: Stack(
         children: [
           Container(
             alignment: Alignment.bottomRight,
             child: Image.asset(
-              'assets/klok_subtle.png',
+              Theme.of(context).brightness == Brightness.light
+                  ? 'assets/subtle.png'
+                  : 'assets/subtledark.png',
               width: 0.8 * MediaQuery.of(context).size.width,
               // was nog te donker :D
               opacity: const AlwaysStoppedAnimation(.3),
@@ -37,7 +38,7 @@ class LoginScreen extends StatelessWidget {
                     padding: const EdgeInsets.only(bottom: 16.0),
                     child: Text(
                       'https://www.emgroup.be - v3.23.40.10',
-                      style: TextStyle(color: customTheme!.infoColor),
+                      style: TextStyle(color: theme.primary),
                     ),
                   ),
                 ],
@@ -58,21 +59,22 @@ class CustomLoginHeader extends StatelessWidget {
     Size screenSize = MediaQuery.of(context).size;
     ColorScheme theme = Theme.of(context).colorScheme;
     return SizedBox(
-        height: screenSize.height * 0.22,
-        child: Stack(
-          children: [
-            ClipPath(
-              clipper: CustomLoginHeaderClipper(),
-              child: Container(color: theme.primary),
-            ),
-            Center(
-                child: Text(('My Time'),
-                    style: Theme.of(context)
-                        .textTheme
-                        .headlineLarge!
-                        .copyWith(color: Colors.white)))
-          ],
-        ));
+      height: screenSize.height * 0.22,
+      child: Stack(
+        children: [
+          ClipPath(
+            clipper: CustomLoginHeaderClipper(),
+            child: Container(color: theme.primary),
+          ),
+          Center(
+              child: Text(('My Time'),
+                  style: Theme.of(context)
+                      .textTheme
+                      .headlineLarge!
+                      .copyWith(color: Colors.white)))
+        ],
+      ),
+    );
   }
 }
 
@@ -100,8 +102,12 @@ class LoginContainer extends StatelessWidget {
     return Column(
       children: [
         const SizedBox(height: 32),
-        Image.asset('assets/logo_highres.png',
-            height: 100, fit: BoxFit.fitHeight),
+        Image.asset(
+            Theme.of(context).brightness == Brightness.light
+                ? 'assets/logo_highres.png'
+                : 'assets/em_dark.png',
+            height: 100,
+            fit: BoxFit.fitHeight),
         const SizedBox(height: 32),
         const LoginFieldsUI()
       ],
@@ -248,26 +254,28 @@ class _LoginButtonState extends State<LoginButton> {
           await loginService.login('username', 'password');
 
       if (loginCredentialsValid) {
-        Navigator.push(
-            context,
-            PageRouteBuilder(
-              pageBuilder: (context, animation, secondaryAnimation) =>
-                  DashboardPage(),
-              transitionsBuilder:
-                  (context, animation, secondaryAnimation, child) {
-                var begin = Offset(1.0, 0.0);
-                var end = Offset.zero;
-                var curve = Curves.easeInOutCubic;
+        Navigator.pushAndRemoveUntil(
+          context,
+          PageRouteBuilder(
+            pageBuilder: (context, animation, secondaryAnimation) =>
+                DashboardPage(),
+            transitionsBuilder:
+                (context, animation, secondaryAnimation, child) {
+              var begin = Offset(1.0, 0.0);
+              var end = Offset.zero;
+              var curve = Curves.easeInOutCubic;
 
-                var tween = Tween(begin: begin, end: end)
-                    .chain(CurveTween(curve: curve));
+              var tween =
+                  Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
 
-                return SlideTransition(
-                  position: animation.drive(tween),
-                  child: child,
-                );
-              },
-            ));
+              return SlideTransition(
+                position: animation.drive(tween),
+                child: child,
+              );
+            },
+          ),
+          (route) => false, // Remove all previous routes
+        );
       }
     }
 
@@ -286,11 +294,11 @@ class _LoginButtonState extends State<LoginButton> {
   Widget build(BuildContext context) {
     ColorScheme theme = Theme.of(context).colorScheme;
 
-    SizedBox spinner = SizedBox(
+    SizedBox spinner = const SizedBox(
       width: 20,
       height: 20,
       child: CircularProgressIndicator(
-        color: theme.inversePrimary,
+        color: Colors.white,
         strokeWidth: 3.0,
       ),
     );

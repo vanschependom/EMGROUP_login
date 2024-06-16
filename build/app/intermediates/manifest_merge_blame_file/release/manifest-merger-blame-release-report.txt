@@ -1,0 +1,155 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.example.login_page"
+4    android:versionCode="1"
+5    android:versionName="0.1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="21"
+8-->/Users/vincent/Documents/Code/EMGROUP_login/android/app/src/main/AndroidManifest.xml
+9        android:targetSdkVersion="34" />
+9-->/Users/vincent/Documents/Code/EMGROUP_login/android/app/src/main/AndroidManifest.xml
+10    <!--
+11         Required to query activities that can process text, see:
+12         https://developer.android.com/training/package-visibility and
+13         https://developer.android.com/reference/android/content/Intent#ACTION_PROCESS_TEXT.
+14
+15         In particular, this is used by the Flutter engine in io.flutter.plugin.text.ProcessTextPlugin.
+16    -->
+17    <queries>
+17-->/Users/vincent/Documents/Code/EMGROUP_login/android/app/src/main/AndroidManifest.xml:39:5-44:15
+18        <intent>
+18-->/Users/vincent/Documents/Code/EMGROUP_login/android/app/src/main/AndroidManifest.xml:40:9-43:18
+19            <action android:name="android.intent.action.PROCESS_TEXT" />
+19-->/Users/vincent/Documents/Code/EMGROUP_login/android/app/src/main/AndroidManifest.xml:41:13-72
+19-->/Users/vincent/Documents/Code/EMGROUP_login/android/app/src/main/AndroidManifest.xml:41:21-70
+20
+21            <data android:mimeType="text/plain" />
+21-->/Users/vincent/Documents/Code/EMGROUP_login/android/app/src/main/AndroidManifest.xml:42:13-50
+21-->/Users/vincent/Documents/Code/EMGROUP_login/android/app/src/main/AndroidManifest.xml:42:19-48
+22        </intent>
+23    </queries>
+24
+25    <uses-permission android:name="android.permission.INTERNET" />
+25-->[:google_sign_in_android] /Users/vincent/Documents/Code/EMGROUP_login/build/google_sign_in_android/intermediates/merged_manifest/release/AndroidManifest.xml:9:5-67
+25-->[:google_sign_in_android] /Users/vincent/Documents/Code/EMGROUP_login/build/google_sign_in_android/intermediates/merged_manifest/release/AndroidManifest.xml:9:22-64
+26
+27    <application
+28        android:name="android.app.Application"
+28-->/Users/vincent/Documents/Code/EMGROUP_login/android/app/src/main/AndroidManifest.xml:4:9-42
+29        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+29-->[androidx.core:core:1.8.0] /Users/vincent/.gradle/caches/transforms-3/6c370c0d11951b8869a9ff66c2237bc8/transformed/core-1.8.0/AndroidManifest.xml:24:18-86
+30        android:icon="@mipmap/ic_launcher"
+30-->/Users/vincent/Documents/Code/EMGROUP_login/android/app/src/main/AndroidManifest.xml:5:9-43
+31        android:label="login_page" >
+31-->/Users/vincent/Documents/Code/EMGROUP_login/android/app/src/main/AndroidManifest.xml:3:9-35
+32        <activity
+32-->/Users/vincent/Documents/Code/EMGROUP_login/android/app/src/main/AndroidManifest.xml:6:9-27:20
+33            android:name="com.example.login_page.MainActivity"
+33-->/Users/vincent/Documents/Code/EMGROUP_login/android/app/src/main/AndroidManifest.xml:7:13-41
+34            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+34-->/Users/vincent/Documents/Code/EMGROUP_login/android/app/src/main/AndroidManifest.xml:12:13-163
+35            android:exported="true"
+35-->/Users/vincent/Documents/Code/EMGROUP_login/android/app/src/main/AndroidManifest.xml:8:13-36
+36            android:hardwareAccelerated="true"
+36-->/Users/vincent/Documents/Code/EMGROUP_login/android/app/src/main/AndroidManifest.xml:13:13-47
+37            android:launchMode="singleTop"
+37-->/Users/vincent/Documents/Code/EMGROUP_login/android/app/src/main/AndroidManifest.xml:9:13-43
+38            android:taskAffinity=""
+38-->/Users/vincent/Documents/Code/EMGROUP_login/android/app/src/main/AndroidManifest.xml:10:13-36
+39            android:theme="@style/LaunchTheme"
+39-->/Users/vincent/Documents/Code/EMGROUP_login/android/app/src/main/AndroidManifest.xml:11:13-47
+40            android:windowSoftInputMode="adjustResize" >
+40-->/Users/vincent/Documents/Code/EMGROUP_login/android/app/src/main/AndroidManifest.xml:14:13-55
+41
+42            <!--
+43                 Specifies an Android theme to apply to this Activity as soon as
+44                 the Android process has started. This theme is visible to the user
+45                 while the Flutter UI initializes. After that, this theme continues
+46                 to determine the Window background behind the Flutter UI.
+47            -->
+48            <meta-data
+48-->/Users/vincent/Documents/Code/EMGROUP_login/android/app/src/main/AndroidManifest.xml:19:13-22:17
+49                android:name="io.flutter.embedding.android.NormalTheme"
+49-->/Users/vincent/Documents/Code/EMGROUP_login/android/app/src/main/AndroidManifest.xml:20:15-70
+50                android:resource="@style/NormalTheme" />
+50-->/Users/vincent/Documents/Code/EMGROUP_login/android/app/src/main/AndroidManifest.xml:21:15-52
+51
+52            <intent-filter>
+52-->/Users/vincent/Documents/Code/EMGROUP_login/android/app/src/main/AndroidManifest.xml:23:13-26:29
+53                <action android:name="android.intent.action.MAIN" />
+53-->/Users/vincent/Documents/Code/EMGROUP_login/android/app/src/main/AndroidManifest.xml:24:17-68
+53-->/Users/vincent/Documents/Code/EMGROUP_login/android/app/src/main/AndroidManifest.xml:24:25-66
+54
+55                <category android:name="android.intent.category.LAUNCHER" />
+55-->/Users/vincent/Documents/Code/EMGROUP_login/android/app/src/main/AndroidManifest.xml:25:17-76
+55-->/Users/vincent/Documents/Code/EMGROUP_login/android/app/src/main/AndroidManifest.xml:25:27-74
+56            </intent-filter>
+57        </activity>
+58        <!--
+59             Don't delete the meta-data below.
+60             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
+61        -->
+62        <meta-data
+62-->/Users/vincent/Documents/Code/EMGROUP_login/android/app/src/main/AndroidManifest.xml:30:9-32:33
+63            android:name="flutterEmbedding"
+63-->/Users/vincent/Documents/Code/EMGROUP_login/android/app/src/main/AndroidManifest.xml:31:13-44
+64            android:value="2" />
+64-->/Users/vincent/Documents/Code/EMGROUP_login/android/app/src/main/AndroidManifest.xml:32:13-30
+65
+66        <activity
+66-->[com.google.android.gms:play-services-auth:21.0.0] /Users/vincent/.gradle/caches/transforms-3/72e0d9946a6207425806986245880361/transformed/jetified-play-services-auth-21.0.0/AndroidManifest.xml:23:9-27:75
+67            android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
+67-->[com.google.android.gms:play-services-auth:21.0.0] /Users/vincent/.gradle/caches/transforms-3/72e0d9946a6207425806986245880361/transformed/jetified-play-services-auth-21.0.0/AndroidManifest.xml:24:13-93
+68            android:excludeFromRecents="true"
+68-->[com.google.android.gms:play-services-auth:21.0.0] /Users/vincent/.gradle/caches/transforms-3/72e0d9946a6207425806986245880361/transformed/jetified-play-services-auth-21.0.0/AndroidManifest.xml:25:13-46
+69            android:exported="false"
+69-->[com.google.android.gms:play-services-auth:21.0.0] /Users/vincent/.gradle/caches/transforms-3/72e0d9946a6207425806986245880361/transformed/jetified-play-services-auth-21.0.0/AndroidManifest.xml:26:13-37
+70            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+70-->[com.google.android.gms:play-services-auth:21.0.0] /Users/vincent/.gradle/caches/transforms-3/72e0d9946a6207425806986245880361/transformed/jetified-play-services-auth-21.0.0/AndroidManifest.xml:27:13-72
+71        <!--
+72            Service handling Google Sign-In user revocation. For apps that do not integrate with
+73            Google Sign-In, this service will never be started.
+74        -->
+75        <service
+75-->[com.google.android.gms:play-services-auth:21.0.0] /Users/vincent/.gradle/caches/transforms-3/72e0d9946a6207425806986245880361/transformed/jetified-play-services-auth-21.0.0/AndroidManifest.xml:33:9-37:51
+76            android:name="com.google.android.gms.auth.api.signin.RevocationBoundService"
+76-->[com.google.android.gms:play-services-auth:21.0.0] /Users/vincent/.gradle/caches/transforms-3/72e0d9946a6207425806986245880361/transformed/jetified-play-services-auth-21.0.0/AndroidManifest.xml:34:13-89
+77            android:exported="true"
+77-->[com.google.android.gms:play-services-auth:21.0.0] /Users/vincent/.gradle/caches/transforms-3/72e0d9946a6207425806986245880361/transformed/jetified-play-services-auth-21.0.0/AndroidManifest.xml:35:13-36
+78            android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION"
+78-->[com.google.android.gms:play-services-auth:21.0.0] /Users/vincent/.gradle/caches/transforms-3/72e0d9946a6207425806986245880361/transformed/jetified-play-services-auth-21.0.0/AndroidManifest.xml:36:13-107
+79            android:visibleToInstantApps="true" />
+79-->[com.google.android.gms:play-services-auth:21.0.0] /Users/vincent/.gradle/caches/transforms-3/72e0d9946a6207425806986245880361/transformed/jetified-play-services-auth-21.0.0/AndroidManifest.xml:37:13-48
+80
+81        <activity
+81-->[com.google.android.gms:play-services-base:18.0.1] /Users/vincent/.gradle/caches/transforms-3/3b2d428fede6c5e3dd9018d5c02cc047/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:20:9-22:45
+82            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+82-->[com.google.android.gms:play-services-base:18.0.1] /Users/vincent/.gradle/caches/transforms-3/3b2d428fede6c5e3dd9018d5c02cc047/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:20:19-85
+83            android:exported="false"
+83-->[com.google.android.gms:play-services-base:18.0.1] /Users/vincent/.gradle/caches/transforms-3/3b2d428fede6c5e3dd9018d5c02cc047/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:22:19-43
+84            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+84-->[com.google.android.gms:play-services-base:18.0.1] /Users/vincent/.gradle/caches/transforms-3/3b2d428fede6c5e3dd9018d5c02cc047/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:21:19-78
+85
+86        <meta-data
+86-->[com.google.android.gms:play-services-basement:18.2.0] /Users/vincent/.gradle/caches/transforms-3/88dbd55d68aa64142427667a0b0fd3ea/transformed/jetified-play-services-basement-18.2.0/AndroidManifest.xml:21:9-23:69
+87            android:name="com.google.android.gms.version"
+87-->[com.google.android.gms:play-services-basement:18.2.0] /Users/vincent/.gradle/caches/transforms-3/88dbd55d68aa64142427667a0b0fd3ea/transformed/jetified-play-services-basement-18.2.0/AndroidManifest.xml:22:13-58
+88            android:value="@integer/google_play_services_version" />
+88-->[com.google.android.gms:play-services-basement:18.2.0] /Users/vincent/.gradle/caches/transforms-3/88dbd55d68aa64142427667a0b0fd3ea/transformed/jetified-play-services-basement-18.2.0/AndroidManifest.xml:23:13-66
+89
+90        <uses-library
+90-->[androidx.window:window:1.0.0-beta04] /Users/vincent/.gradle/caches/transforms-3/f302e75fb7efd781bcf1a29281c188da/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:25:9-27:40
+91            android:name="androidx.window.extensions"
+91-->[androidx.window:window:1.0.0-beta04] /Users/vincent/.gradle/caches/transforms-3/f302e75fb7efd781bcf1a29281c188da/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:26:13-54
+92            android:required="false" />
+92-->[androidx.window:window:1.0.0-beta04] /Users/vincent/.gradle/caches/transforms-3/f302e75fb7efd781bcf1a29281c188da/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:27:13-37
+93        <uses-library
+93-->[androidx.window:window:1.0.0-beta04] /Users/vincent/.gradle/caches/transforms-3/f302e75fb7efd781bcf1a29281c188da/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:28:9-30:40
+94            android:name="androidx.window.sidecar"
+94-->[androidx.window:window:1.0.0-beta04] /Users/vincent/.gradle/caches/transforms-3/f302e75fb7efd781bcf1a29281c188da/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:29:13-51
+95            android:required="false" />
+95-->[androidx.window:window:1.0.0-beta04] /Users/vincent/.gradle/caches/transforms-3/f302e75fb7efd781bcf1a29281c188da/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:30:13-37
+96    </application>
+97
+98</manifest>

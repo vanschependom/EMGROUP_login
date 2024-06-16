@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:login_page/dashboard/dashboard.dart';
 import 'package:login_page/login/loginpage.dart';
 import 'package:login_page/themes.dart';
 
@@ -17,8 +18,10 @@ class _MainAppState extends State<MainApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        theme: MyTimeThemes.lightMode,
-        darkTheme: MyTimeThemes.darkMode,
-        home: const LoginScreen());
+      themeMode: ThemeMode.system,
+      theme: GlobalThemeData.lightThemeData,
+      darkTheme: GlobalThemeData.darkThemeData,
+      home: LoginScreen(),
+    );
   }
 }

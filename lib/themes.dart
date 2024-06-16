@@ -1,84 +1,59 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class MyTimeThemes {
-  static const Color primaryColor = Color(0xFF6C1313);
-  static const Color inversePrimary = Colors.white;
+class GlobalThemeData {
+  static final Color _lightFocusColor = Colors.black.withOpacity(0.12);
+  static final Color _darkFocusColor = Colors.white.withOpacity(0.12);
 
-  // light mode colors
-  static ThemeData lightMode = ThemeData(
-      useMaterial3: true,
-      brightness: Brightness.light,
-      colorScheme:
-          ColorScheme.fromSeed(seedColor: Colors.grey, primary: primaryColor),
+  static ThemeData themeData(ColorScheme colorScheme, Color focusColor) {
+    return ThemeData(
+      // gemeenschappelijke theme data tussen light en dark mode
+      // hier komen bijvoorbeeld de styles voor de fonts
+      colorScheme: colorScheme,
+      canvasColor: colorScheme.surface,
+      scaffoldBackgroundColor: colorScheme.surface,
       textTheme: GoogleFonts.interTightTextTheme(
         const TextTheme(
             // hier komen adjustmenst aan de standaard styling
             headlineLarge:
-                TextStyle(fontSize: 40.0, fontWeight: FontWeight.w500)),
+                TextStyle(fontSize: 20.0, fontWeight: FontWeight.w300)),
       ),
-      inputDecorationTheme: const InputDecorationTheme(
-        labelStyle: TextStyle(color: Colors.grey),
-        border: OutlineInputBorder(
-          borderSide: BorderSide(color: Colors.grey),
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: Colors.grey),
-        ),
-        enabledBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: Colors.grey),
-        ),
-      ),
-      extensions: const <ThemeExtension<CustomColors>>{
-        CustomColors(infoColor: Colors.grey)
-      });
-
-  // dark mode colors
-  static final ThemeData darkMode = ThemeData(
-      brightness: Brightness.dark,
-      colorScheme: ColorScheme.fromSeed(seedColor: primaryColor).copyWith(
-        brightness: Brightness.dark,
-      ),
-      textTheme: const TextTheme(
-        titleLarge: TextStyle(fontSize: 72.0, fontWeight: FontWeight.bold),
-      ),
-      inputDecorationTheme: const InputDecorationTheme(
-        labelStyle: TextStyle(color: Colors.white),
-        border: OutlineInputBorder(
-          borderSide: BorderSide(color: Colors.white),
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: Colors.white),
-        ),
-        enabledBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: Colors.white),
-        ),
-      ),
-      // elevatedButtonTheme: ElevatedButtonThemeData(
-      //   style: ButtonStyle(
-      //       backgroundColor: MaterialStateProperty.all(primaryColor),
-      //       foregroundColor: MaterialStateProperty.all(inversePrimary)),
-      // ),
-      extensions: const <ThemeExtension<CustomColors>>{
-        CustomColors(infoColor: Colors.grey)
-      });
-}
-
-class CustomColors extends ThemeExtension<CustomColors> {
-  const CustomColors({required this.infoColor});
-
-  final Color? infoColor;
-
-  @override
-  CustomColors copyWith({Color? customColor}) {
-    return CustomColors(infoColor: customColor ?? this.infoColor);
+    );
   }
 
-  @override
-  CustomColors lerp(CustomColors? other, double t) {
-    if (other is! CustomColors) {
-      return this;
-    }
-    return CustomColors(infoColor: Color.lerp(infoColor, other.infoColor, t));
-  }
+  static ThemeData lightThemeData =
+      themeData(lightColorScheme, _lightFocusColor);
+  static ThemeData darkThemeData = themeData(darkColorScheme, _darkFocusColor);
+
+  // kleuren komen altijd voor in paren
+  //  - de gewone kleur (primary, secondary, surface, ...)
+  //  - de kleur die gebruikt wordt voor de tekst op die kleur (onPrimary, onSecondary, onSurface, ...)
+
+  static const ColorScheme lightColorScheme = ColorScheme(
+    // theme data enkel voor light mode
+    // verder aan te vullen
+    primary: Color(0xffa02b2b),
+    onPrimary: Colors.white,
+    secondary: Color(0xFFEFF3F3),
+    onSecondary: Color.fromARGB(255, 66, 41, 41),
+    error: Colors.redAccent,
+    onError: Colors.white,
+    surface: Color.fromARGB(255, 236, 236, 236),
+    onSurface: Color.fromARGB(255, 48, 30, 30),
+    brightness: Brightness.light,
+  );
+
+  static const ColorScheme darkColorScheme = ColorScheme(
+    // theme data enkel voor dark mode
+    // verder aan te vullen
+    primary: Color(0xffa02b2b),
+    secondary: Color.fromARGB(255, 124, 31, 31),
+    surface: Color.fromARGB(255, 37, 20, 20),
+    error: Colors.redAccent,
+    onError: Colors.white,
+    onPrimary: Colors.white,
+    onSecondary: Colors.white,
+    onSurface: Colors.white,
+    brightness: Brightness.dark,
+  );
 }
